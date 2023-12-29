@@ -1,0 +1,40 @@
+Print in Reverse
+
+Given a pointer to the head of a singly-linked list, print each  value from the reversed list. If the given list is empty, do not print anything.
+
+Example
+ Head refers to the linked list with data values 1->2->3->NULL
+Print the following:
+3
+2
+1
+
+Function Description
+Complete the reversePrint function in the editor below.
+
+reversePrint has the following parameters:
+SinglyLinkedListNode pointer head: a reference to the head of the list
+Prints
+The  data values of each node in the reversed list.
+
+Input Format
+The first line of input contains , the number of test cases.
+The input of each test case is as follows:
+The first line contains an integer , the number of elements in the list.
+Each of the next n lines contains a data element for a list node.
+
+===============================================================================================================
+Solution:
+def reversePrint(llist):
+
+    curr = llist
+    cn = []
+
+    while curr!=None:
+        cn.append(curr.data)
+        curr=curr.next
+        
+    final = cn[::-1]
+    for i in range(len(final)):
+        print(final[i])
+    
