@@ -1,0 +1,68 @@
+Inserting a Node Into a Sorted Doubly Linked List
+
+
+Given a reference to the head of a doubly-linked list and an integer,data , create a new DoublyLinkedListNode object having data value data and insert it at the proper 
+location to maintain the sort.
+
+Example
+Head refers to the list 1<->2<->4<->NULL
+data = 3
+Return a reference to the new list: 1<->2<->3<->4<->NULL
+
+Function Description
+Complete the sortedInsert function in the editor below.
+sortedInsert has two parameters:
+DoublyLinkedListNode pointer head: a reference to the head of a doubly-linked list
+int data: An integer denoting the value of the  field for the DoublyLinkedListNode you must insert into the list.
+
+Returns
+DoublyLinkedListNode pointer: a reference to the head of the list
+Note: Recall that an empty list (i.e., where Head=NULL) and a list with one
+
+
+===================================================================================================================
+Solution:
+ DoublyLinkedListNode:
+#     int data
+#     DoublyLinkedListNode next
+#     DoublyLinkedListNode prev
+#
+#
+
+def sortedInsert(llist, data):
+    
+    if llist == None:
+        node = DoublyLinkedListNode(data)
+        return node
+        
+    # Write your code here
+    curr = llist
+
+    # temp = None
+    while curr!=None:
+        if curr.data >= data:
+            node = DoublyLinkedListNode(data)
+            node.prev = curr.prev
+            node.next = curr
+            curr.prev = node
+            if node.prev ==None:
+                return node
+            else:
+                node.prev.next = node
+                return llist
+        
+        if curr.next==None:
+            nn = DoublyLinkedListNode(data)
+            nn.prev=curr
+            nn.next = None
+            curr.next = nn
+            break
+            
+        curr = curr.next
+   
+            
+        
+    return llist
+            
+        
+
